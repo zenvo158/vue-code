@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>按钮倒计时</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button type="button" :disabled="mydis">{{btntext}}</button>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					btntext:'60000',
+					mydis:true
+				},
+					
+				mounted:function(){
+					var timer = setInterval(()=>{
+						this.btntext--;
+						if(this.btntext <=0){
+							clearInterval(timer);
+							this.btntext = '确定';
+							this.mydis = false;
+						}
+						
+					},100)
+				},
+				beforeUpdate:function(){
+					console.log('跟新前')
+				},
+				updated:function(){
+					console.log('更新后')
+				}
+				
+			})
+		</script>
+	</body>
+</html>

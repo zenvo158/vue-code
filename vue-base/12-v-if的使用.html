@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button type="button" @click="showfun">显示和隐藏</button>
+			<div v-if = 'showtype'>
+				天使llllll
+			</div>
+			<div v-else>
+			恶魔mmmmmmm
+			</div>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+						showtype:true
+				},
+				methods:{
+					showfun:function(){
+						this.showtype = !this.showtype;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button type="button" @click="showfun">更换显示</button>
+			<template v-if="showtype">
+				<div>aaaaa</div>
+				<div>bbbb</div>
+				<div>ccccc</div>
+				<div>ddddddd</div>
+				
+			</template>
+			<template v-else>
+				<div>1111111</div>
+				<div>222222222</div>
+				<div>33333333</div>
+				<div>44444</div>
+				
+			</template>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					showtype:true
+				},
+				methods:{
+					showfun:function(){
+						this.showtype = !this.showtype
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

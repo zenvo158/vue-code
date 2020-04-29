@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			指令：
+			v-if
+			v-for
+			v-bind,
+			v-on:,
+			v-once,
+			
+			<div v-if="ok">
+				显示v
+			</div>
+			<a v-bind:href="myurl">百度链接</a>
+			
+			<button v-on:click="addf">点击加一：{{num}}</button>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					num:1,
+					message:'hello',
+					ok:true,
+					myurl:'http://www.baidu.com'
+				},
+				methods:{
+					addf:function(){
+						console.log('函数调用');
+						this.num++
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

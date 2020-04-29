@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.myclass{
+				width: 580px;
+				height: 50px;
+				font-size: 18px;
+				background: blue;
+				color: #FFD700;
+			}
+			.active{
+				color: #FF0000;
+			}
+			
+			.danger{
+				border: 1px solid gold ;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			v-bind:简写 ‘ ：’
+			<div :class='myclass'>
+				第一段：
+			v-bind:class='myclass'  ==  :class='myclass'
+			</div>
+			<div :class='{active:isactive,danger:isdanger}'>
+				第二段
+				:class='{active:isactive,danger:isdanger}'
+			</div>
+			<div :style='{color:"plum",background:"yellow"}'>
+				第三段
+				:style='{color:"plum",background:"yellow"}'
+			</div>
+			<div :style='{color:yellowcolor,background:greencolor}'>
+				第四段
+				:style='{color:yellowcolor,background:grenncolor}'
+			</div>
+			<div :style='mystyle'>
+				第五段
+				:style='mystyle'
+			</div>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					myclass:'myclass',
+					isactive:true,
+					isdanger:false,
+					yellowcolor:'yellow',
+					greencolor:'green',
+					mystyle:{color:'blue',background:'gray'}
+				}
+			})
+		</script>
+	</body>
+</html>

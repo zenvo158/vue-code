@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div >
+				{{number+1}}
+			</div>
+			
+			<div >
+				{{ok?"yes":"no"}}
+			</div>
+			<div >
+				原字符串：{{message}}
+			</div>
+			<div >
+				反转后字符串：{{message.split('').reverse().join("")}}
+			</div>
+			<div v-bind:id="'myaaa'+id">
+				列表15
+			</div>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					number:10,
+					ok:true,
+					message:'学习vue',
+					id:15
+				}
+			})
+		</script>
+	</body>
+</html>

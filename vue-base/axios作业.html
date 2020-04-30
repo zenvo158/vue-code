@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>电视剧</h2>
+			<ul class="list">
+				<li v-for="item in guochanlist">\
+					<div >
+						<img :src='item.cover.url' title='item.title' />
+						{{item.title}}
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					guochanlist:[],
+					zongyilist:[],
+					yingmeilist:[]
+				},
+				mounted:function(){
+					axios.get('dianshiju.json').then((data)=>{
+						console.log(data);
+						this.guochanlist = data.data.subject_collection_items;
+					}).catch((error)=>{
+						console.log(error);
+					})
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="(item,index) in arr">{{index}} -- {{item}}</li>
+			</ul>
+			<button type="button" @click='addfun'>添加</button>
+			<button type="button" @click='sfun'>截取</button>
+		</div>
+		<script type="text/javascript">
+			var vm  = new Vue({
+				el:'#app',
+				data:{
+					arr:['html','css','js']
+				},
+				methods:{
+					addfun:function(){
+						// this.arr[3] = 'new';
+						this.arr.push('new');
+						console.log(this.arr)
+						
+						this.$set(this.arr,3,'scss');
+					},
+					sfun:function(){
+						this.arr = this.arr.slice(0,3);
+						console.log(this.arr);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

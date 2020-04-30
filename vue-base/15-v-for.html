@@ -8,18 +8,26 @@
 	<body>
 		<div id="app">
 			<ul>
-				<li v-for="item in list">{{item.id}} -- {{item.name}}</li>
+				<li v-for="(item,key,index) in list">{{item.id}} -{{key}} - {{item.name}}</li>
+			</ul>
+			<ul>
+				<li v-for="(item,key,index) in myobj">{{index}} - {{key}} - {{item}}</li>
 			</ul>
 		</div>
 		<script type="text/javascript">
 			var vm = new Vue({
 				el:'#app',
 				data:{
-					list:{
+					list:[
 						{"id":1,"name":"js"},
 						{"id":2,"name":"css"},
 						{"id":3,"name":"html"},
 						{"id":4,"name":"vue"},
+					],
+					myobj:{
+						'name':'大熊',
+						'ddcat':'叮当猫',
+						'bbdog':'巴布豆'
 					}
 				}
 			})
